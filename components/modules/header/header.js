@@ -9,7 +9,7 @@ const Header = () => {
     <Navbar
       bg="light"
       expand="lg"
-      className="border-bottom"
+      className="border-bottom border-gray"
       expanded={expanded}
       onToggle={() => setExpanded(!expanded)}
     >
@@ -58,6 +58,7 @@ const Header = () => {
               className="ms-2 "
             >
               Get Started
+      
             </Button>
           </Nav>
         </Navbar.Collapse>
