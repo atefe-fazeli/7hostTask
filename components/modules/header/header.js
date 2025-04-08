@@ -9,60 +9,85 @@ const Header = () => {
     <Navbar
       bg="light"
       expand="lg"
-      className="border-bottom border-gray"
+      className="border-bottom border-gray py-12 px-32 px-lg-96 d-flex align-items-center"
       expanded={expanded}
       onToggle={() => setExpanded(!expanded)}
     >
-      <Container>
+      <Container fluid className="p-0 m-0 ">
         <Image
           src="/logo.svg"
           alt="logo"
-          height={30}
-          width={100}
-          style={{ objectFit: "contain" }}
+          height={32}
+          width={149}
+          style={{ objectFit: "contain",marginBottom:"3px"}}
         />
-
-        {/* منوی همبرگری برای موبایل */}
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
-          className="d-lg-none position-absolute top-0 bottom-0 end-0 bg-primary text-white rounded-5 p-2"
+          className="border-0 focus:shadow-none focus:outline-none rounded-circle bg-primary p-0 m-0"
         >
-            <div><span className="w-20 "></span></div>
+          <span className="navbar-toggler-icon-custom">
+            <span className="toggler-bar bar1"></span>
+            <span className="toggler-bar bar2"></span>
+          </span>
         </Navbar.Toggle>
 
-        {/* لینک‌ها */}
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto align-items-center">
-            {/* لینک‌ها در دسکتاپ */}
-            <Nav.Link as={Link} href="/pricing" className="mx-2">
-              Pricing
-            </Nav.Link>
-            <Nav.Link as={Link} href="/how-it-works" className="mx-2">
-              How It Works
-            </Nav.Link>
-            <Nav.Link as={Link} href="/faq" className="mx-2">
-              FAQ
-            </Nav.Link>
-            <Nav.Link as={Link} href="/currencies" className="mx-2">
-              Currencies
-            </Nav.Link>
-            <Nav.Link as={Link} href="/sign-in" className="mx-2">
-              Sign In
-            </Nav.Link>
-
-            {/* دکمه Get Started */}
-            <Button
-              variant="primary"
-              as={Link}
-              href="/get-started"
-              className="ms-2 "
-            >
-              Get Started
-      
-            </Button>
+          <Nav className="align-items-center d-flex justify-content-between w-100">
+            <div className="d-flex gap-5 ms-5">
+              <Nav.Link as={Link} href="/pricing" className=" text-darkText fw-bold text-center lh-base">
+                Pricing
+              </Nav.Link>
+              <Nav.Link as={Link} href="/how-it-works" className=" text-darkText fw-bold text-center lh-base">
+                How It Works
+              </Nav.Link>
+              <Nav.Link as={Link} href="/faq" className=" text-darkText fw-bold text-center lh-base">
+                FAQ
+              </Nav.Link>
+              <Nav.Link as={Link} href="/currencies" className=" text-secondary fw-bold text-center lh-base">
+                Currencies
+              </Nav.Link>
+            </div>
+            <div className="d-flex align-items-center gap-5">
+              <Nav.Link as={Link} href="/sign-in" className="text-darkText fw-bold text-center lh-base">
+                Sign In
+              </Nav.Link>
+              <Button variant="primary" className="rounded-5 px-32 py-3 ">
+                <span className=" fw-bold fs-6 lh-base text-center">
+                  Get Started
+                </span>
+              </Button>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>
+
+      <style jsx>{`
+        .navbar-toggler-icon-custom {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          border-radius: 100%;
+        }
+        .toggler-bar {
+          display: block;
+          width: 50%;
+          height: 2px;
+          background-color: #ffff;
+          transition: all 0.3s ease;
+        }
+        .bar1 {
+          margin-bottom: 8px;
+        }
+        .navbar-toggler[aria-expanded="true"] .bar1 {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .navbar-toggler[aria-expanded="true"] .bar2 {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      `}</style>
     </Navbar>
   );
 };
