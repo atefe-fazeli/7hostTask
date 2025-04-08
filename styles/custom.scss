@@ -1,15 +1,51 @@
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
+
+
 $custom-colors: (
   "secondary": #08c056,
   "primary": #2140d4,
   "text": #7e8186,
   "gray": #c8d7ff,
-  "darkText":#4C5D77,
-  "light":#FAFBFFCC,
-
+  "darkText": #4C5D77,
+  "light": #FAFBFF,
+  "btBorder": #BED0FF
 );
-$spacers: map-merge($spacers, ("12": 12px, "32": 32px,"96":96px,));
+
+
+$spacers: map-merge($spacers, (
+  "12": 12px,
+  "32": 32px,
+  "48":48px,
+  "96": 96px,
+  
+));
+
+
+$custom-widths: (
+  "10px": 10px,
+  "20px": 20px,
+  "25px": 25px,
+  "32px": 32px,
+  "48px": 48px,
+  "223px":223px
+);
+
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
+
+$font-sizes: (
+  "small": 12px,
+  "normal": 16px,
+  // "large": 20px,
+  "x-large": 24px,
+  "xx-large": 36px
+);
+
+@each $name, $value in $custom-widths {
+  .w-#{$name} {
+    width: $value !important;
+  }
+}
+
 @import "~bootstrap/scss/bootstrap";

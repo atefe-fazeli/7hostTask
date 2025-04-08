@@ -15,11 +15,11 @@ const Header = () => {
     >
       <Container fluid className="p-0 m-0 ">
         <Image
-          src="/logo.svg"
+          src="/images/logo.svg"
           alt="logo"
           height={32}
           width={149}
-          style={{ objectFit: "contain",marginBottom:"3px"}}
+          style={{ objectFit: "contain", marginBottom: "3px" }}
         />
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
@@ -34,21 +34,41 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="align-items-center d-flex justify-content-between w-100">
             <div className="d-flex gap-5 ms-5">
-              <Nav.Link as={Link} href="/pricing" className=" text-darkText fw-bold text-center lh-base">
+              <Nav.Link
+                as={Link}
+                href="/pricing"
+                className=" text-darkText fw-bold text-center lh-base"
+              >
                 Pricing
               </Nav.Link>
-              <Nav.Link as={Link} href="/how-it-works" className=" text-darkText fw-bold text-center lh-base">
+              <Nav.Link
+                as={Link}
+                href="/how-it-works"
+                className=" text-darkText fw-bold text-center lh-base"
+              >
                 How It Works
               </Nav.Link>
-              <Nav.Link as={Link} href="/faq" className=" text-darkText fw-bold text-center lh-base">
+              <Nav.Link
+                as={Link}
+                href="/faq"
+                className=" text-darkText fw-bold text-center lh-base"
+              >
                 FAQ
               </Nav.Link>
-              <Nav.Link as={Link} href="/currencies" className=" text-secondary fw-bold text-center lh-base">
+              <Nav.Link
+                as={Link}
+                href="/currencies"
+                className=" text-secondary fw-bold text-center lh-base"
+              >
                 Currencies
               </Nav.Link>
             </div>
             <div className="d-flex align-items-center gap-5">
-              <Nav.Link as={Link} href="/sign-in" className="text-darkText fw-bold text-center lh-base">
+              <Nav.Link
+                as={Link}
+                href="/sign-in"
+                className="text-darkText fw-bold text-center lh-base"
+              >
                 Sign In
               </Nav.Link>
               <Button variant="primary" className="rounded-5 px-32 py-3 ">

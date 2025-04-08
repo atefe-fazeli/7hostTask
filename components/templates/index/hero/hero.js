@@ -1,51 +1,50 @@
-// components/Hero.js
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-
+import Image from "next/image";
 const Hero = () => {
   return (
-    <section className="hero-section py-5 bg-light">
-      <Container>
-        <Row className="align-items-center">
-          <Col lg={6} className="mb-4 mb-lg-0">
-            
-            <p
-              className="mb-4 text-center text-lg-start lh-1"
-              style={{
-                fontFamily: "'Public Sans', sans-serif",
-                fontWeight: 900,
-                fontSize: "36px",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              Manage your daily tasks better without all the stress.
-            </p>
-            <p className="mb-4">
-              Change the way you manage your tasks with our revolutionary
-              project management technology.
-            </p>
+    <section className="py-4 px-32 px-md-96 py-md-48 d-flex flex-column flex-md-row align-content-center  ">
+      <div className="w-100 w-md-50 d-flex flex-column justify-content-between me-0 md-me-5">
+        <p className="display-3 fw-black lh-1 fs-xx-large text-primary text-center text-md-start ">
+          Manage your daily tasks better without all the stress.
+        </p>
+        <p className=" font-public-sans fw-normal fs-5 lh-base  ls-n1 text-darkText text-center text-md-start ">
+          Change the way you manage your tasks with our revolutionary project
+          management technology.
+        </p>
 
-            <div className="d-flex flex-column flex-sm-row gap-3">
-              <Button variant="primary" size="lg" className="px-4">
-                Get Started
-              </Button>
-              <Button variant="primary" size="lg" className="px-4">
-                Schedule a Demo
-              </Button>
-            </div>
-          </Col>
-
-          <Col lg={6}>
-            {/* Placeholder for an image - you can replace this with an actual image */}
-            <div
-              className="bg-secondary rounded-3 p-5 text-white d-flex align-items-center justify-content-center"
-              style={{ height: "300px" }}
-            >
-              <span>Hero Image Placeholder</span>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+        <div className="d-flex flex-column flex-sm-row gap-4 px-32 py-3 ">
+          <Button
+            variant="secondary"
+            className="px-32 py-3 rounded-5 d-flex align-items-center gap-5 justify-content-md-between"
+          >
+            <span className="text-white fw-bold fs-6 lh-24px ls-0 leading-trim ">
+              Get Started
+            </span>
+            <Image
+              src="/images/arrow.svg"
+              alt="arrow"
+              height={14}
+              width={8}
+              style={{ objectFit: "contain" }}
+            />
+          </Button>
+          <Button className="px-32 py-3 bg-white rounded-5 border-btBorder">
+            <span className="text-primary fw-bold fs-6 lh-24px ls-0 leading-trim">
+              Schedule a Demo
+            </span>
+          </Button>
+        </div>
+      </div>
+      <div className="w-100 w-md-50 d-flex justify-content-center align-content-center ms-md-5">
+        <Image
+          src="/images/hero.svg"
+          alt="hero"
+          height={340}
+          width={460}
+          style={{ objectFit: "contain" }}
+        />
+      </div>
     </section>
   );
 };
