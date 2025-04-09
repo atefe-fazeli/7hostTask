@@ -18,7 +18,7 @@ const About = () => {
   ];
 
   return (
-    <section className="d-flex flex-column  gap-2">
+    <section className="d-flex flex-column  gap-2 py-4 px-32 px-md-96 py-md-48 ">
       <div className="d-flex flex-column">
         <h3 className="display-5 fw-bold text-center fs-xx-large lh-1">
           Get more done in

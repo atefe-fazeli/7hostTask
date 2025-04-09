@@ -13,6 +13,8 @@ $custom-colors: (
   "darkBlue":#00006D,
   "purple":#7737FF,
   "orange":#FF9900,
+  "faq":#EDEDED,
+  "black":#212121,
 );
 
 
@@ -20,6 +22,7 @@ $spacers: map-merge($spacers, (
   "12": 12px,
   "32": 32px,
   "48":48px,
+  "56":56px,
   "96": 96px,
   
 ));
@@ -43,6 +46,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 $font-sizes: (
   "small": 12px,
   "normal": 16px,
+  "med":18px,
   "large": 20px,
   "x-large": 24px,
   "xx-large": 36px

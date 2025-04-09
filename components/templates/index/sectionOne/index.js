@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const SectionOne = () => {
   return (
-    <section className="py-48 d-flex flex-column flex-md-row align-content-center ">
+    <section className="py-48 d-flex flex-column flex-md-row align-content-center py-4 px-32 px-md-96 py-md-48 ">
       <div className="w-60 w-md-40 d-flex justify-content-center align-items-center">
         <Image
           src="/images/workflow.svg"
