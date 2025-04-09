@@ -5,9 +5,9 @@ const Hero = () => {
   return (
     <section className="py-4 px-32 px-md-96 py-md-48 d-flex flex-column flex-md-row align-content-center  ">
       <div className="w-100 w-md-50 d-flex flex-column justify-content-between me-0 md-me-5">
-        <p className="display-3 fw-black lh-1 fs-xx-large text-primary text-center text-md-start ">
+        <h2 className="display-3 fw-bold lh-1 fs-xx-large text-primary text-center text-md-start ">
           Manage your daily tasks better without all the stress.
-        </p>
+        </h2>
         <p className=" font-public-sans fw-normal fs-5 lh-base  ls-n1 text-darkText text-center text-md-start ">
           Change the way you manage your tasks with our revolutionary project
           management technology.

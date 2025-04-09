@@ -1,47 +1,49 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-
+import Image from "next/image";
 const About = () => {
   const features = [
     {
       title: "Transparent Pricing",
-      description: "No hidden fees, clear pricing structure for all users.",
+      src: "/images/transparent.svg",
     },
     {
       title: "Easy Integrations",
-      description: "Seamlessly connect with your favorite tools and services.",
+      src: "/images/integration.svg",
     },
     {
       title: "Superb Efficiency",
-      description: "Optimized workflows to maximize your productivity.",
+      src: "/images/superb.svg",
     },
   ];
 
   return (
-    <section className="about-app py-5">
-      <Container>
-        <Row className="justify-content-center mb-5">
-          <Col lg={8} className="text-center">
-            <h3 className="display-5 fw-bold mb-3">
-              Get more done in less time
-            </h3>
-            <p className="lead text-muted">Simple, fast, effortlessly.</p>
-          </Col>
-        </Row>
-
-        <Row className="g-4">
-          {features.map((feature, index) => (
-            <Col key={index} md={4}>
-              <Card className="h-100 border-0 shadow-sm">
-                <Card.Body className="p-4">
-                  <h4 className="fw-bold mb-3">{feature.title}</h4>
-                  <p className="text-muted mb-0">{feature.description}</p>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+    <section className="d-flex flex-column  gap-2">
+      <div className="d-flex flex-column">
+        <h3 className="display-5 fw-bold text-center fs-xx-large lh-1">
+          Get more done in
+          <span className="display-5 fw-bold text-center text-secondary fs-1 lh-1">
+            {" "}
+            less time
+          </span>{" "}
+        </h3>
+        <p className="fs-x-large fw-normal lh-base text-center text-text">
+          Simple, fast, effortlessly.
+        </p>
+      </div>
+      <div className="d-flex flex-column flex-md-row align-items-center  justify-content-md-center gap-3 gap-md-96">
+        {features.map((feature, index) => (
+          <div className="d-flex align-items-center gap-3" key={index}>
+            <Image
+              src={`${feature.src}`}
+              alt="icon"
+              height={64}
+              width={64}
+            />
+            <h4 className="fs-normal fw-bold lh-base text-darkBlue">{feature.title}</h4>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

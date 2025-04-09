@@ -7,7 +7,6 @@ const Header = () => {
 
   return (
     <Navbar
-      bg="light"
       expand="lg"
       className="border-bottom border-gray py-12 px-32 px-lg-96 d-flex align-items-center"
       expanded={expanded}
