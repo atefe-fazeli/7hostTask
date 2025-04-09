@@ -16,8 +16,8 @@ export default function Home() {
       <SectionOne />
       <TemplateLibrary />
       <ProfessionalSwiper />
-      <CTASection />
       <FAQ />
+      <CTASection />
     </>
   );
 }
