@@ -1,50 +1,101 @@
 // components/Footer.js
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-
+import React from "react";
+import { Container, Row, Col, Nav } from "react-bootstrap";
+import Image from "next/image";
+import Link from "next/link";
+import { useTheme } from '@/context/themeContext';
 const Footer = () => {
-  const links = [
-    { title: "Preface", url: "#" },
-    { title: "Terms of Service", url: "#" },
-    { title: "How It Works", url: "#" },
-    { title: "Privacy Policy", url: "#" },
-    { title: "FAQ", url: "#" }
-  ];
-
-  const socialLinks = [
-    { name: "Mode", url: "#" },
-    { name: "Play", url: "#" },
-    { name: "Thack", url: "#" }
-  ];
-
+  const { theme, toggleTheme } = useTheme();
   return (
-    <footer className="footer py-5 bg-dark text-white">
-      <Container>
+    <footer className="py-4 px-32 px-md-96 py-md-48 ">
+      <Container className="">
         <Row className="justify-content-between">
-          <Col md={4} className="mb-4 mb-md-0">
-            <h3 className="fw-bold mb-3">7flow.</h3>
-            <div className="d-flex flex-wrap gap-3">
-              {links.map((link, index) => (
-                <a key={index} href={link.url} className="text-white text-decoration-none">
-                  {link.title}
-                </a>
-              ))}
-            </div>
+          <Col sm={12} md={2} className="text-center text-md-start mb-3 mb-md-0">
+            <Image src="/images/logo.svg" alt="logo" height={32} width={77} />
           </Col>
 
-          <Col md={4} className="text-md-end">
-            <div className="d-flex justify-content-md-end gap-3">
-              {socialLinks.map((social, index) => (
-                <a key={index} href={social.url} className="text-white text-decoration-none fw-bold">
-                  {social.name}
-                </a>
-              ))}
-            </div>
-            <p className="mt-3 mb-0 text-muted">
-              &copy; {new Date().getFullYear()} 7flow. All rights reserved.
-            </p>
+          <Col sm={12} md={5}>
+            <Row className="w-100  mb-3 mb-md-0">
+              <Col xs={12} md={6} className="">
+                {" "}
+                <Nav.Link
+                  as={Link}
+                  href="/pricing"
+                  className=" fs-normal fw-bold text-darkText mb-3"
+                >
+                  Pricing
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  href="/how-it-works"
+                  className=" fs-normal fw-bold text-darkText mb-3"
+                >
+                  How It Works
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  href="/faq"
+                  className=" fs-normal fw-bold text-darkText mb-3"
+                >
+                  FAQ
+                </Nav.Link>
+              </Col>{" "}
+              <Col xs={12} md={6} className="">
+                <Nav.Link
+                  as={Link}
+                  href="/TermsService"
+                  className=" fs-normal fw-bold text-darkText mb-3"
+                >
+                  Terms of Service
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  href="/TermsService"
+                  className=" fs-normal fw-bold text-darkText mb-3"
+                >
+                  Privacy Policy
+                </Nav.Link>
+              </Col>
+            </Row>
+          </Col>
+          <Col sm={12} md={3} className="text-center">
+            <Row className="w-100 mb-3 mb-md-0">
+              <Col xs={4} className="">
+                <Image
+                  src="/images/insta.svg"
+                  alt="logo"
+                  height={48}
+                  width={48}
+                />
+              </Col>
+              <Col xs={4} className="">
+                <Image
+                  src="/images/tueter.svg"
+                  alt="logo"
+                  height={48}
+                  width={48}
+                />
+              </Col>
+              <Col xs={4} className="">
+                <Image
+                  src="/images/facebook.svg"
+                  alt="logo"
+                  height={48}
+                  width={48}
+                />
+              </Col>
+            </Row>
           </Col>
         </Row>
+        <div className="text-center mt-4 text-text fs-normal fw-bold">
+          Made with ❤{" "}by 
+          <Link
+            href="/"
+            className=" ms-1"
+          >
+            7ho.st
+          </Link>
+        </div>
       </Container>
     </footer>
   );

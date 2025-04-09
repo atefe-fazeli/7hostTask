@@ -9,6 +9,7 @@ import styles from "@/styles/Home.module.css";
 import ProfessionalSwiper from "@/components/templates/index/swiper/swiper";
 
 export default function Home() {
+
   return (
     <>
       <Hero />
