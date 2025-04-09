@@ -1,50 +1,42 @@
-
-import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import React from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { Image } from "react-bootstrap";
+import Link from "next/link";
 
 const SectionOne = () => {
   return (
-    <section className="stats-section py-5 bg-light">
-      <Container>
-        <Row className="align-items-center">
-          {/* Left Column - Stats Cards */}
-          <Col lg={4} className="mb-4 mb-lg-0">
-            <div className="d-flex flex-column gap-4">
-              {/* Task Count Card */}
-              <div className="p-4 bg-white rounded-3 shadow-sm">
-                <h3 className="text-muted mb-2 fs-6">Your Tasks Added</h3>
-                <p className="display-4 fw-bold mb-0">1,281</p>
-              </div>
+    <section className="py-48 d-flex flex-column flex-md-row align-content-center ">
+      <div className="w-60 w-md-40 d-flex justify-content-center align-items-center">
+        <Image
+          src="/images/workflow.svg"
+          alt="workflow"
+          className="w-100 h-100"
+        />
+      </div>
 
-              {/* User Profile Card */}
-              <div className="p-4 bg-white rounded-3 shadow-sm">
-                <h3 className="text-muted mb-2 fs-6">User Profile</h3>
-                <p className="fw-bold mb-1">Anna Smith</p>
-                <p className="text-muted mb-0">annasmith@gmail.com</p>
-              </div>
-
-              {/* Completion Rate Card */}
-              <div className="p-4 bg-white rounded-3 shadow-sm">
-                <h3 className="text-muted mb-2 fs-6">Completion Rate Increase</h3>
-                <p className="display-4 fw-bold text-success mb-0">10.8%</p>
-              </div>
-            </div>
-          </Col>
-
-          {/* Right Column - Content */}
-          <Col lg={8}>
-            <div className="ps-lg-5">
-              <h2 className="display-5 fw-bold mb-4">Revolutionize your workflow</h2>
-              <p className="lead mb-4">
-                We have designed our app for increased efficiency and it will help you to start getting more things done.
-              </p>
-              <Button variant="primary" size="lg" className="px-4">
-                Learn More
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <div className="w-60 w-md-60 d-flex ps-md-5 d-flex flex-column justify-content-center">
+        <h2 className="fw-bold  fs-x-large fs-md-xx-large lh-1 text-purple mb-3 mb-md-5">
+          Revolutionize your workflow
+        </h2>
+        <p className="fw-normal fs-large fs-md-x-large lh-sm text-text">
+          We have designed our app for increased efficiency and it will help you
+          to start getting more things done.
+        </p>
+        <div className="d-flex justify-content-end mt-4">
+          <Link
+            href="/dashboard"
+            className="text-decoration-none d-flex gap-3 align-items-center "
+          >
+            <span className="fs-normal lh-sm fw-bold">Learn More</span>
+            <Image
+              src="/images/arrowleft.svg"
+              alt="arrow"
+              height={14}
+              width={8}
+            />
+          </Link>
+        </div>
+      </div>
     </section>
   );
 };

@@ -3,8 +3,8 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Image from "next/image";
 const Hero = () => {
   return (
-    <section className="py-4 px-32 px-md-96 py-md-48 d-flex flex-column flex-md-row align-content-center  ">
-      <div className="w-100 w-md-50 d-flex flex-column justify-content-between me-0 md-me-5">
+    <section className="d-flex flex-column flex-md-row align-content-center  ">
+      <div className="w-100 w-md-50 d-flex flex-column justify-content-between me-0 me-md-5">
         <h2 className="display-3 fw-bold lh-1 fs-xx-large text-primary text-center text-md-start ">
           Manage your daily tasks better without all the stress.
         </h2>
@@ -36,7 +36,7 @@ const Hero = () => {
           </Button>
         </div>
       </div>
-      <div className="w-100 w-md-50 d-flex justify-content-center align-content-center ms-md-5">
+      <div className="w-100 w-md-50 d-flex justify-content-end align-content-center ms-md-5">
         <Image
           src="/images/hero.svg"
           alt="hero"
