@@ -3,14 +3,19 @@ import React from "react";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from '@/context/themeContext';
+import Form from "react-bootstrap/Form";
+import { useTheme } from "@/context/themeContext";
 const Footer = () => {
   const { theme, toggleTheme } = useTheme();
   return (
     <footer className="py-4 px-32 px-md-96 py-md-48 ">
       <Container className="">
         <Row className="justify-content-between">
-          <Col sm={12} md={2} className="text-center text-md-start mb-3 mb-md-0">
+          <Col
+            sm={12}
+            md={2}
+            className="text-center text-md-start mb-3 mb-md-0"
+          >
             <Image src="/images/logo.svg" alt="logo" height={32} width={77} />
           </Col>
 
@@ -87,12 +92,14 @@ const Footer = () => {
             </Row>
           </Col>
         </Row>
+        <div className="d-flex align-items-center gap-3 justify-content-center justify-content-md-start mt-2">
+        <Image src="/images/theme.svg" alt="logo" height={32} width={32} />
+          <Form.Check type="switch" id="custom-switch" onClick={toggleTheme} />
+        
+        </div>
         <div className="text-center mt-4 text-text fs-normal fw-bold">
-          Made with ❤{" "}by 
-          <Link
-            href="/"
-            className=" ms-1"
-          >
+          Made with ❤ by
+          <Link href="/" className=" ms-1">
             7ho.st
           </Link>
         </div>

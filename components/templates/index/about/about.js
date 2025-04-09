@@ -1,7 +1,9 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import Image from "next/image";
+import { useTheme } from "@/context/themeContext";
 const About = () => {
+    const { theme } = useTheme();
   const features = [
     {
       title: "Transparent Pricing",
@@ -34,13 +36,14 @@ const About = () => {
       <div className="d-flex flex-column flex-md-row align-items-center  justify-content-md-center gap-3 gap-md-96">
         {features.map((feature, index) => (
           <div className="d-flex align-items-center gap-3" key={index}>
-            <Image
-              src={`${feature.src}`}
-              alt="icon"
-              height={64}
-              width={64}
-            />
-            <h4 className="fs-normal fw-bold lh-base text-darkBlue">{feature.title}</h4>
+            <Image src={`${feature.src}`} alt="icon" height={64} width={64} />
+            <h4
+              className={`fs-normal fw-bold lh-base text-darkBlue ${
+                theme === "dark" ? "text-darkBody" : "text-darkText"
+              }`}
+            >
+              {feature.title}
+            </h4>
           </div>
         ))}
       </div>

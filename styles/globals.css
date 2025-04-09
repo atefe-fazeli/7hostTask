@@ -13,9 +13,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
-  background-color:var(--light) ;
-  
+  overflow-x: hidden; 
 }
 
 body {
@@ -25,6 +23,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 * {
   box-sizing: border-box;
@@ -47,7 +46,20 @@ a {
     border-radius: 1.5rem!important;
   }
 }
-
+.cta-custom-container{
+  background-image: url('../public/images/cta.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #BED0FF;
+  border-radius: 56px;
+}
+[data-bs-theme='dark'] .cta-custom-container{
+  background-image: url('../public/images/darkcta.svg');
+  background-color:#292B33;
+  fill: #3C3E4A;
+  opacity: inherit;
+}
 .accordion-button {
 background-color: #EDEDED!important;
   color:#212121!important;
@@ -59,8 +71,6 @@ background-color: #EDEDED!important;
   border-bottom: 1px solid #E5E5EA !important;
   
 }
-
-
 .accordion-button::after {
   background-image: none !important; 
   content: "+" !important; 
@@ -76,8 +86,6 @@ background-color: #EDEDED!important;
   border-radius: 50%; 
   padding-bottom: 3px;
 }
-
-
 .accordion-button:not(.collapsed)::after {
   background-image: none !important;
   content: "−" !important; 
@@ -94,16 +102,29 @@ background-color: #EDEDED!important;
   transform: none !important; 
   padding-bottom: 3px;
 }
-
 .accordion-item {
   border: none !important; 
-}
-.accordion-item {
   margin-bottom: 1rem; 
 }
-
-
 .accordion-body {
   background-color: #E5E5EA;
   color: #858383; 
+  
+}
+[data-bs-theme='dark'] .accordion-button {
+  background-color: #434343 !important;
+  color: #DDDDDD !important;
+  border-bottom: 1px solid #5C5C5C !important;
+}
+[data-bs-theme='dark'] .accordion-body {
+ background-color: #434343;
+  color: #A5A5A5; 
+}
+[data-bs-theme='dark'] .accordion-button::after {
+  border: 2px solid #DDDDDD; 
+  color: #DDDDDD; 
+}
+[data-bs-theme='dark'] .accordion-button:not(.collapsed)::after  {
+  border: 2px solid #DDDDDD; 
+  color: #DDDDDD; 
 }

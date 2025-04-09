@@ -1,17 +1,23 @@
 import React from "react";
 import { Container, Accordion } from "react-bootstrap";
-
+import { useTheme } from "@/context/themeContext";
 const FAQ = () => {
+  const { theme } = useTheme();
   return (
-    <div className=" my-5 my-md-56 bg-faq py-4 px-32 px-md-56 mx-md-96 py-md-48 d-flex flex-column gap-3  rounded-5">
-      <h2 className="fw-bold fs-2 lh-1 text-center text-black">FAQ</h2>
+  
+    <div
+      className={` my-5 my-md-56   py-4 px-32 px-md-56 mx-md-96 py-md-48 d-flex flex-column gap-3  rounded-5 ${
+        theme === "dark" ? "bg-faqdark" : "bg-faq"
+      }`}
+    >
+      <h2 className={`fw-bold fs-2 lh-1 text-center ${theme==="dark"?"text-white":"text-black"}`}>FAQ</h2>
       <p className="fw-normal fs-med lh-sm text-center text-text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi u
       </p>
       <Accordion defaultActiveKey="0">
-        <Accordion.Item eventKey="0" className="border-0 mb-3">
+        <Accordion.Item eventKey="0" className=" mb-3">
           <Accordion.Header>Lorem ipsum dolor sit amet?</Accordion.Header>
           <Accordion.Body>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -24,7 +30,7 @@ const FAQ = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="1" className="border-0 mb-3">
+        <Accordion.Item eventKey="1" className=" mb-3">
           <Accordion.Header>Consectetur adipiscing elit?</Accordion.Header>
           <Accordion.Body>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -37,7 +43,7 @@ const FAQ = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="2" className="border-0 ">
+        <Accordion.Item eventKey="2" className=" ">
           <Accordion.Header>
             Sed do eiusmod tempor incididunt ut labore et dolore?
           </Accordion.Header>
@@ -53,6 +59,7 @@ const FAQ = () => {
         </Accordion.Item>
       </Accordion>
     </div>
+
   );
 };
 

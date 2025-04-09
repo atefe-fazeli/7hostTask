@@ -1,30 +1,35 @@
 // context/ThemeContext.js
 import { createContext, useState, useEffect, useContext } from 'react';
 
-// ساخت Context
 const ThemeContext = createContext();
 
-// پرایدر برای Context
 export function ThemeProvider({ children }) {
-  // مدیریت حالت تم با localStorage
-  const [theme, setTheme] = useState(() => {
-    // بررسی localStorage یا مقدار پیش‌فرض
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
-    }
-    return 'light';
-  });
+  const [theme, setTheme] = useState('light'); // مقدار اولیه
+  const [isMounted, setIsMounted] = useState(false);
 
-  // اعمال تم روی document.documentElement
+  // فقط توی مرورگر اجرا بشه
   useEffect(() => {
-    document.documentElement.setAttribute('data-bs-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    setIsMounted(true);
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-bs-theme', savedTheme);
+  }, []);
 
-  // تابع برای سوییچ کردن تم
+  useEffect(() => {
+    if (isMounted) {
+      document.documentElement.setAttribute('data-bs-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+  }, [theme, isMounted]);
+
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
+
+  // تا وقتی رندر سمت کلاینت انجام نشده، چیزی رندر نکن
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -33,7 +38,6 @@ export function ThemeProvider({ children }) {
   );
 }
 
-// هوک برای استفاده از Context
 export function useTheme() {
   return useContext(ThemeContext);
 }

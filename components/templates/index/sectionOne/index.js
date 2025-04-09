@@ -2,13 +2,16 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import Link from "next/link";
-
+import { useTheme } from "@/context/themeContext";
 const SectionOne = () => {
+  const { theme } = useTheme();
   return (
     <section className="py-48 d-flex flex-column flex-md-row align-content-center py-4 px-32 px-md-96 py-md-48 ">
       <div className="w-60 w-md-40 d-flex justify-content-center align-items-center">
         <Image
-          src="/images/workflow.svg"
+          src={`${
+            theme === "dark" ? "/images/darkworkflow.svg" : "/images/workflow.svg"
+          }`}
           alt="workflow"
           className="w-100 h-100"
         />
@@ -18,7 +21,12 @@ const SectionOne = () => {
         <h2 className="fw-bold  fs-x-large fs-md-xx-large lh-1 text-purple mb-3 mb-md-5">
           Revolutionize your workflow
         </h2>
-        <p className="fw-normal fs-large fs-md-x-large lh-sm text-text">
+        <p
+          className={`fw-normal fs-large fs-md-x-large lh-sm text-text ${
+            theme === "dark" ? "text-darkBody" : "text-darkText"
+          }
+        `}
+        >
           We have designed our app for increased efficiency and it will help you
           to start getting more things done.
         </p>

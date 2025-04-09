@@ -1,14 +1,18 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Image from "next/image";
+import { useTheme } from "@/context/themeContext";
 const Hero = () => {
+  const { theme } = useTheme();
   return (
     <section className="d-flex flex-column flex-md-row align-content-center py-4 px-32 px-md-96 py-md-48  ">
       <div className="w-100 w-md-50 d-flex flex-column justify-content-between me-0 me-md-5">
         <h2 className="display-3 fw-bold lh-1 fs-xx-large text-primary text-center text-md-start ">
           Manage your daily tasks better without all the stress.
         </h2>
-        <p className=" font-public-sans fw-normal fs-5 lh-base  ls-n1 text-darkText text-center text-md-start ">
+        <p className={` font-public-sans fw-normal fs-5 lh-base  ls-n1  text-center text-md-start ${
+          theme === 'dark' ? 'text-darkBody' : 'text-darkText'
+        }`}>
           Change the way you manage your tasks with our revolutionary project
           management technology.
         </p>
