@@ -83,7 +83,7 @@ const Currencies = ({ initialData }) => {
         <Topbar />
       </div>
       <div className="py-0 px-0 px-md-96 py-md-48">
-        <div className="bg-tableContainer rounded-4 no-rounded px-md-56 py-md-40 p-5">
+        <div className="bg-tableContainer rounded-4  px-md-56 py-md-40 p-5">
           {data.length > 0 ? (
             <InfiniteScroll
               dataLength={data.length}

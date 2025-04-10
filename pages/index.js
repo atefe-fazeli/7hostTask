@@ -5,10 +5,35 @@ import FAQ from "@/components/templates/index/faq/faq";
 import Hero from "@/components/templates/index/hero/hero";
 import TemplateLibrary from "@/components/templates/index/library/ibrary";
 import SectionOne from "@/components/templates/index/sectionOne";
-import styles from "@/styles/Home.module.css";
-import ProfessionalSwiper from "@/components/templates/index/swiper/swiper";
+import CustomSwiper from "@/components/templates/index/swiper/swiper";
 
 export default function Home() {
+  const slides = [
+    {
+      id: 1,
+      src: "/images/swiper.png",
+      title: "Risk-free 30 day trial tolevel up your team’s productivity.",
+      desc: "Get started now and take advantage of our 30 day free trial today. No credit card required.  ",
+    },
+    {
+      id: 2,
+      src: "/images/swiper.png",
+      title: "Risk-free 30 day trial tolevel up your team’s productivity.",
+      desc: "Get started now and take advantage of our 30 day free trial today. No credit card required.  ",
+    },
+    {
+      id: 3,
+      src: "/images/swiper.png",
+      title: "Risk-free 30 day trial tolevel up your team’s productivity.",
+      desc: "Get started now and take advantage of our 30 day free trial today. No credit card required.  ",
+    },
+    {
+      id: 4,
+      src: "/images/swiper.png",
+      title: "Risk-free 30 day trial tolevel up your team’s productivity.",
+      desc: "Get started now and take advantage of our 30 day free trial today. No credit card required.  ",
+    },
+  ];
 
   return (
     <>
@@ -16,7 +41,7 @@ export default function Home() {
       <About />
       <SectionOne />
       <TemplateLibrary />
-      <ProfessionalSwiper />
+      <CustomSwiper slides={slides} />
       <FAQ />
       <CTASection />
     </>

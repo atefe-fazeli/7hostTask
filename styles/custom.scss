@@ -42,9 +42,14 @@ $custom-widths: (
   "64px":64px,
   "223px":223px,
   "311px":311px,
-  "528px":528px
+  "528px":528px,
+  "265px":265px,
+  "816px":816px
 );
-
+$custom-height: (
+  "140px":140px,
+  "432px":432px,
+);
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
@@ -60,6 +65,11 @@ $font-sizes: (
 @each $name, $value in $custom-widths {
   .w-#{$name} {
     width: $value !important;
+  }
+}
+@each $name, $value in $custom-height {
+  .h-#{$name} {
+    height: $value !important;
   }
 }
 
