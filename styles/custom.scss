@@ -18,12 +18,14 @@ $custom-colors: (
   "darkBody":#C8CED6,
   "faqdark":#434343,
   "lightpurple":#DECBE9,
+  "tableContainer":#EDEDED,
 );
 
 
 $spacers: map-merge($spacers, (
   "12": 12px,
   "32": 32px,
+  "40":40px,
   "48":48px,
   "56":56px,
   "96": 96px,

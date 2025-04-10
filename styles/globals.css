@@ -128,3 +128,13 @@ background-color: #EDEDED!important;
   border: 2px solid #DDDDDD; 
   color: #DDDDDD; 
 }
+
+@media (max-width: 479px) {
+  .no-rounded {
+    border-radius: 0px !important;
+  }
+}
+
+.custom-table {
+  background-color: #EDEDED !important; /* رنگ دلخواه */
+}
