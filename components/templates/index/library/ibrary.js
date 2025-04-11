@@ -6,7 +6,7 @@ import { useTheme } from "@/context/themeContext";
 const TemplateLibrary = () => {
    const { theme } = useTheme();
   return (
-    <section className="py-48 d-flex flex-column flex-column-reverse flex-md-row align-content-center py-4 px-32 px-md-96 py-md-48 ">
+    <section className="py-48 d-flex flex-column flex-column-reverse flex-md-row align-content-center py-4 px-32 px-md-96 py-md-48 " id="how-it-works">
       <div className="w-60 w-md-60 d-flex ps-md-5 d-flex flex-column justify-content-center">
         <h2 className="fw-bold  fs-x-large fs-md-xx-large lh-1 text-orange mb-3 mb-md-5">
           Free template library included

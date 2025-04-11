@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "./header.module.css";
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
 
@@ -13,16 +14,13 @@ const Header = () => {
       onToggle={() => setExpanded(!expanded)}
     >
       <Container fluid className="p-0 m-0 ">
-        <Image
-          src="/images/logo.svg"
-          alt="logo"
-          height={32}
-          width={149}
-          style={{ objectFit: "contain", marginBottom: "3px" }}
-        />
+        <Navbar.Brand href="#" className="z-3 mb-2">
+          <Image src="/images/logo.svg" alt="logo" height={32} width={149} />
+        </Navbar.Brand>
+
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
-          className="border-0 focus:shadow-none focus:outline-none rounded-circle bg-primary p-0 m-0"
+          className={`border-0 focus:shadow-none focus:outline-none rounded-circle bg-primary p-0 m-0 ${styles.navbarToggler}`}
         >
           <span className="navbar-toggler-icon-custom">
             <span className="toggler-bar bar1"></span>
@@ -30,26 +28,29 @@ const Header = () => {
           </span>
         </Navbar.Toggle>
 
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="align-items-center d-flex justify-content-between w-100">
-            <div className="d-flex gap-5 ms-5">
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          className={styles.navbarCollapse}
+        >
+          <Nav className="align-items-start align-items-lg-center d-flex justify-content-between w-100   py-5 py-lg-0 h-100">
+            <Nav className="d-flex flex-column h-100 flex-grow-1 align-items-start align-items-lg-center ms-5 pt-5 pt-lg-0  flex-lg-row gap-2 gap-lg-5">
               <Nav.Link
                 as={Link}
-                href="/pricing"
+                href="/#pricing"
                 className=" text-darkText fw-bold text-center lh-base"
               >
                 Pricing
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                href="/how-it-works"
-                className=" text-darkText fw-bold text-center lh-base"
+                href="/#how-it-works"
+                className={`text-darkText fw-bold text-center lh-base ${styles.customNavLink}`}
               >
                 How It Works
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                href="/faq"
+                href="#faq"
                 className=" text-darkText fw-bold text-center lh-base"
               >
                 FAQ
@@ -61,21 +62,21 @@ const Header = () => {
               >
                 Currencies
               </Nav.Link>
-            </div>
-            <div className="d-flex align-items-center gap-5">
+            </Nav>
+            <Nav className="d-flex flex-column-reverse   flex-lg-row justify-content-end align-items-center gap-3 m-auto m-lg-0 gap-lg-5 ">
               <Nav.Link
                 as={Link}
                 href="/sign-in"
-                className="text-darkText fw-bold text-center lh-base"
+                className="text-darkText fw-bold text-center lh-base "
               >
                 Sign In
               </Nav.Link>
-              <Button variant="primary" className="rounded-5 px-32 py-3 ">
+              <Nav.Link className="rounded-5 px-96 px-lg-32 py-3 bg-primary text-white">
                 <span className=" fw-bold fs-6 lh-base text-center">
                   Get Started
                 </span>
-              </Button>
-            </div>
+              </Nav.Link>
+            </Nav>
           </Nav>
         </Navbar.Collapse>
       </Container>

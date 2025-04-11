@@ -1,0 +1,22 @@
+.navbarCollapse {
+    @media (max-width: 991px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #FAFBFFCC; 
+      
+      backdrop-filter: blur(8px); 
+    }
+  }
+  .navbarToggler {
+    z-index: 1100; 
+  }
+  
+  @media (max-width: 1147px){
+    .customNavLink{
+   display: none !important;
+    }
+  }
+  

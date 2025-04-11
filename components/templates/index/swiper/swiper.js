@@ -16,7 +16,6 @@ const CustomSwiper = ({ slides }) => {
     centeredSlides: true,
     slidesPerView: 1.3,
     spaceBetween: 15,
-
     initialSlide: 0,
     effect: "coverflow",
     coverflowEffect: {
@@ -36,7 +35,7 @@ const CustomSwiper = ({ slides }) => {
   };
 
   return (
-    <div  className={` ${styles.swiperContainer}`}>
+    <div  className={` ${styles.swiperContainer}`} id="pricing">
       <Swiper {...swiperParams} ref={swiperRef} className="my-4 my-lg-12 ">
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>

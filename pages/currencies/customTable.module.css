@@ -3,4 +3,15 @@
 background-color: #EDEDED;
   }
   
-  
+[data-bs-theme='dark'] .customTable{
+  background-color: #212529;
+}
+[data-bs-theme='dark'] .customTable th{
+    background-color: #212529;
+}   
+[data-bs-theme='dark'] .customTable td{
+    background-color: #212529;
+} 
+[data-bs-theme='dark'] .customTable thead th {
+    background-color: #212529;
+  }

@@ -79,7 +79,7 @@ const Currencies = ({ initialData }) => {
 
   return (
     <>
-      <div className="bg-lightpurple py-4 px-32 px-md-96 py-md-48">
+      <div className="bg-lightpurple py-4 px-32 px-md-96 py-md-48" >
         <Topbar />
       </div>
       <div className="py-0 px-0 px-md-96 py-md-48">

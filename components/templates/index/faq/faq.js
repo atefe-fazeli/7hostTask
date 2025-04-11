@@ -6,6 +6,7 @@ const FAQ = () => {
   return (
   
     <div
+    id="faq"
       className={` my-5 my-md-56   py-4 px-32 px-md-56 mx-md-96 py-md-48 d-flex flex-column gap-3  rounded-5 ${
         theme === "dark" ? "bg-faqdark" : "bg-faq"
       }`}
