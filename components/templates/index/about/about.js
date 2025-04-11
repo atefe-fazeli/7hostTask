@@ -22,14 +22,14 @@ const About = () => {
   return (
     <section className="d-flex flex-column  gap-2 py-4 px-32 px-md-96 py-md-48 ">
       <div className="d-flex flex-column">
-        <h3 className="display-5 fw-bold text-center fs-xx-large lh-1">
+        <h3 className="display-5  text-center  lh-3 text-text fs-xx-large mb-4" style={{fontWeight:"900"}}>
           Get more done in
-          <span className="display-5 fw-bold text-center text-secondary fs-1 lh-1">
+          <span className="display-5 text-center text-secondary fs-xxx-large" style={{fontWeight:"900"}}>
             {" "}
             less time
           </span>{" "}
         </h3>
-        <p className="fs-x-large fw-normal lh-base text-center text-text">
+        <p className="fs-x-large fw-normal lh-base text-center text-text mb-4">
           Simple, fast, effortlessly.
         </p>
       </div>
