@@ -1,0 +1,98 @@
+
+  .swiperContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  @media (min-width: 992px) {
+    .swiperContainer{
+      padding: 0 96px;
+    }
+  }
+  .slide-content {
+    transition: all 0.3s ease;
+    border-radius: 56px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    height: 300px;
+  }
+  .swiper-slide {
+    padding: 16px 0;
+  }
+  @media (min-width: 768px) {
+    .swiper-slide {
+      padding: 24px 0;
+    }
+  }
+  @media (min-width: 992px) {
+    .swiper-slide {
+      padding: 48px 0;
+    }
+  }
+  .swiper-pagination-bullet {
+    width: 30px !important; 
+  height: 5px !important;
+  border-radius: 2px !important;}
+  .gradientOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1) 0%, 
+      rgba(255, 255, 255, 1) 8%,
+      rgba(255, 255, 255, 0.9) 11%,
+      rgba(255, 255, 255, 0) 15%, 
+      rgba(255, 255, 255, 0) 85%, 
+      rgba(255, 255, 255, 0.9) 89%, 
+      rgba(255, 255, 255, 1) 92%, 
+      rgba(255, 255, 255, 1) 100% 
+    );
+    pointer-events: none;
+    z-index: 5;
+  }
+  [data-bs-theme='dark'] .gradientOverlay {
+  
+    background: rgba(255, 255, 255, 0);
+    pointer-events: none;
+    z-index: 5;
+  }
+  .customSliderImg{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 56px;
+  }
+  .customSliderImg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #21212199; 
+    z-index: 1; 
+    border-radius: 56px;
+  }
+  .customSliderImg > * {
+    position: relative;
+    z-index: 2;
+  }

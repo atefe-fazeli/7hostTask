@@ -3,7 +3,7 @@ import { Container, Table, Button } from "react-bootstrap";
 import Image from "next/image";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Topbar from "@/components/templates/currencies/topbar";
-
+import styles from "./customTable.module.css";
 // دریافت داده‌ها از API در سمت سرور (Server-Side Rendering)
 export async function getServerSideProps() {
   const res = await fetch(
@@ -83,7 +83,7 @@ const Currencies = ({ initialData }) => {
         <Topbar />
       </div>
       <div className="py-0 px-0 px-md-96 py-md-48">
-        <div className="bg-tableContainer rounded-4  px-md-56 py-md-40 p-5">
+        <div className="currency-table-conatiner rounded-4  px-md-56 py-md-40 p-5">
           {data.length > 0 ? (
             <InfiniteScroll
               dataLength={data.length}
@@ -100,7 +100,7 @@ const Currencies = ({ initialData }) => {
             >
               <Table
                 responsive
-                className="table-borderless bg-tableContainer custom-table"
+                className={`table table-borderless ${styles.customTable}`}
               >
                 <thead>
                   <tr>
