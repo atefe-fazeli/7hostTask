@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import styles from "./swiper.module.css"
+import styles from "./swiper.module.css";
 import SwiperItem from "./swiperItem";
 
 const CustomSwiper = ({ slides }) => {
@@ -35,18 +35,21 @@ const CustomSwiper = ({ slides }) => {
   };
 
   return (
-    <div  className={` ${styles.swiperContainer}`} id="pricing">
+    <div className={` ${styles.swiperContainer}`} id="pricing">
       <Swiper {...swiperParams} ref={swiperRef} className="my-4 my-lg-12 ">
         {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <div
-              className={`slide-content ${
-                index === activeIndex ? "active" : ""
-              }`}
-            >
-              <SwiperItem {...slide} />
-            </div>
-          </SwiperSlide>
+          <>
+
+            <SwiperSlide key={index}>
+              <div
+                className={`slide-content ${
+                  index === activeIndex ? "active" : ""
+                }`}
+              >
+                <SwiperItem {...slide} />
+              </div>
+            </SwiperSlide>
+          </>
         ))}
       </Swiper>
       <div className={` ${styles.gradientOverlay}`}></div>

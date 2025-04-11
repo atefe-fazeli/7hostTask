@@ -1,14 +1,17 @@
 .swiperContainer{
     width: 100%;
+    min-height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
   }
+
   @media (min-width: 992px) {
     .swiperContainer{
       padding: 0 96px;
     }
+
   }
   .gradientOverlay {
     position: absolute;
@@ -41,6 +44,7 @@
     background-repeat: no-repeat;
     position: relative;
     border-radius: 56px;
+    min-height: 300px;
   }
   .customSliderImg::before {
     content: "";
