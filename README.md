@@ -1,40 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 7hostTask
 
-## Getting Started
+A Next.js-based web application for displaying cryptocurrency data, built with React Bootstrap and powered by the CoinGecko API. The project features a responsive landing page and a dynamic currencies page with lazy loading and infinite scrolling.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Landing Page**: A welcoming homepage with a navigation bar linking to the currencies page.
+- **Currencies Page** (`/currencies`):
+  - Displays a table of cryptocurrencies with:
+    - Image
+    - Name
+    - Symbol
+    - Current price (USD)
+    - Last updated (formatted in Persian date, e.g., 1403/12/05)
+  - Fetches data dynamically from the CoinGecko API.
+  - Implements **infinite scrolling** with lazy loading to fetch more data as the user scrolls.
+  - After 4 pages of data, a **"Load More"** button appears to fetch additional data.
+  - Clicking a currency open a detailed modal.
+- **Responsive Design**: Built with React Bootstrap and SCSS, based on a provided Figma design.
+- **SEO & Performance**: Optimized using Next.js best practices for speed and search engine visibility.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- **Framework**: Next.js
+- **Design System**: React Bootstrap (`^2.10.9`), Bootstrap (`^5.3.5`)
+- **Styling**: SASS (`^1.86.3`)
+- **API Requests**: Axios (`^1.8.4`)
+- **Date Formatting**: React Multi Date Picker (`^4.5.2`) for Persian date conversion
+- **Carousel/Slider**: Swiper (`^11.2.6`)
+- **API**: [CoinGecko API](https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd)
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Installation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/atefe-fazeli/7hostTask.git
