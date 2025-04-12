@@ -30,25 +30,8 @@ a {
     border-radius: 1.5rem!important;
   }
 }
-.cta-custom-container{
-  background-image: url('../public/images/cta.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #BED0FF;
-  border-radius: 56px;
-}
-[data-bs-theme='dark'] .cta-custom-container{
-  background-image: url('../public/images/darkcta.svg');
-  background-color:#292B33;
-}
-.currency-table-conatiner{
-  background-color: #EDEDED;
-}
-[data-bs-theme='dark'] .currency-table-conatiner{
-  background-color: #212529;
-  border: 1px solid white;
-}
+
+
 .accordion-button {
 background-color: #EDEDED!important;
   color:#212121!important;

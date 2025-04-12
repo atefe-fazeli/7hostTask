@@ -4,6 +4,9 @@ import Image from "next/image";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Topbar from "@/components/templates/currencies/topbar";
 import styles from "./customTable.module.css";
+import { gerogrianToShamsi } from "@/utils/shamsiDateHelper";
+import gregorian_en from "react-date-object/locales/gregorian_en";
+
 // دریافت داده‌ها از API در سمت سرور (Server-Side Rendering)
 export async function getServerSideProps() {
   const res = await fetch(
@@ -83,7 +86,7 @@ const Currencies = ({ initialData }) => {
         <Topbar />
       </div>
       <div className="py-0 px-0 px-md-96 py-md-48">
-        <div className="currency-table-conatiner rounded-4  px-md-56 py-md-40 p-5">
+        <div className={`${styles.currencyTableConatiner} rounded-4  px-md-56 py-md-40 p-5`}>
           {data.length > 0 ? (
             <InfiniteScroll
               dataLength={data.length}
@@ -125,7 +128,7 @@ const Currencies = ({ initialData }) => {
                         {item.name}
                       </td>
                       <td>${item.current_price}</td>
-                      <td>{item.last_updated}</td>
+                      <td>{gerogrianToShamsi(item.last_updated,null,gregorian_en)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -137,12 +140,10 @@ const Currencies = ({ initialData }) => {
             </p>
           )}
 
-          {/* نمایش خطا */}
           {error && (
             <p className="text-center text-danger mt-4">{error}</p>
           )}
 
-          {/* دکمه "نمایش بیشتر" */}
           {page >= 4 && hasMore && (
             <div className="text-center mt-4">
               <Button
@@ -155,7 +156,6 @@ const Currencies = ({ initialData }) => {
             </div>
           )}
 
-          {/* پیام اگه دیگه داده‌ای نباشه */}
           {page >= 4 && !hasMore && !error && (
             <p className="text-center text-muted mt-4">
               No more data to load.

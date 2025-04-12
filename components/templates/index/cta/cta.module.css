@@ -1,0 +1,14 @@
+.ctaCustomContainer{
+    background-image: url('../../../../public/images/cta.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #BED0FF;
+    border-radius: 56px;
+  }
+  [data-bs-theme='dark'] .ctaCustomContainer{
+    background-image: url('../../../../public/images/darkcta.png');
+    background-color:#292B33;
+    position: relative;
+  }
+ 
