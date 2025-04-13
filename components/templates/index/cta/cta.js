@@ -1,6 +1,5 @@
-// components/CTASection.js
 import React from "react";
-import { Container, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import Image from "next/image";
 import styles from "./cta.module.css";
 const CTASection = () => {

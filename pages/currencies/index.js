@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Table, Button, Modal } from "react-bootstrap";
+import { Table, Button, Modal } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Image from "next/image";
 import Topbar from "@/components/templates/currencies/topbar";
@@ -7,36 +7,29 @@ import CurrencyItem from "@/components/templates/currencies/currencyItem";
 import styles from "./customTable.module.css";
 import { useApi } from "../setup/hooks/useApi";
 import {
-  currencyURL,
   GetCurrencyListURL,
-  moreCurrencyURL,
 } from "../setup/api/apiRoutes";
 
 const Currencies = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+  
   const [error, setError] = useState();
   const { getPending, getApi } = useApi();
   const [showModal, setShowModal] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState(null);
 
   useEffect(() => {
-    console.log("use effect");
+   
     getApi(
       GetCurrencyListURL(page),
       (res) => {
-        console.log(res, "kili");
-        if (res?.data?.length === 0) {
-          setHasMore(false);
-        } else {
+       
           setData((prevData) => [...prevData, ...res?.data]);
-        }
+        
       },
       (err) => {
         console.warn(err);
-        console.log(err,"err")
-        setHasMore(false);
         setError(err);
       }
     );
@@ -47,13 +40,12 @@ const Currencies = () => {
   };
 
   const handleShowMore = () => {
-    console.log(getPending, "getPending");
     if (getPending || error) return;
     setPage(page + 1);
   };
 
   const handleShowModal = (currency) => {
-    console.log("modal");
+    
     setSelectedCurrency(currency);
     setShowModal(true);
   };

@@ -1,4 +1,3 @@
-// components/Footer.js
 import React from "react";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import Image from "next/image";
@@ -93,9 +92,8 @@ const Footer = () => {
           </Col>
         </Row>
         <div className="d-flex align-items-center gap-3 justify-content-center justify-content-md-start mt-2">
-        <Image src="/images/theme.svg" alt="logo" height={32} width={32} />
+          <Image src="/images/theme.svg" alt="logo" height={32} width={32} />
           <Form.Check type="switch" id="custom-switch" onClick={toggleTheme} />
-        
         </div>
         <div className="text-center mt-4 text-text fs-normal fw-bold">
           Made with ❤ by

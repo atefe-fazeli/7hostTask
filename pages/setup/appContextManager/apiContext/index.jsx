@@ -18,7 +18,6 @@ function ApiProvider({ children }) {
     await api
       .get(URL)
       .then((res) => {
-        console.log(res)
         const response = new Response(res);
         callbackResponse(response);
       })

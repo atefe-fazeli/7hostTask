@@ -1,17 +1,22 @@
 import React from "react";
-import { Container, Accordion } from "react-bootstrap";
+import { Accordion } from "react-bootstrap";
 import { useTheme } from "@/pages/setup/appContextManager/themeContext/index";
 const FAQ = () => {
   const { theme } = useTheme();
   return (
-  
     <div
-    id="faq"
+      id="faq"
       className={` my-5 my-md-56   py-4 px-32 px-md-56 mx-md-96 py-md-48 d-flex flex-column gap-3  rounded-5 ${
         theme === "dark" ? "bg-faqdark" : "bg-faq"
       }`}
     >
-      <h2 className={`fw-bold fs-2 lh-1 text-center ${theme==="dark"?"text-white":"text-black"}`}>FAQ</h2>
+      <h2
+        className={`fw-bold fs-2 lh-1 text-center ${
+          theme === "dark" ? "text-white" : "text-black"
+        }`}
+      >
+        FAQ
+      </h2>
       <p className="fw-normal fs-med lh-sm text-center text-text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -60,7 +65,6 @@ const FAQ = () => {
         </Accordion.Item>
       </Accordion>
     </div>
-
   );
 };
 

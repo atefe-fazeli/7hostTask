@@ -1,9 +1,8 @@
 import React from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
 import Image from "next/image";
 import { useTheme } from "@/pages/setup/appContextManager/themeContext/index";
 const About = () => {
-    const { theme } = useTheme();
+  const { theme } = useTheme();
   const features = [
     {
       title: "Transparent Pricing",
@@ -22,9 +21,15 @@ const About = () => {
   return (
     <section className="d-flex flex-column  gap-2 py-4 px-32 px-md-96 py-md-48 ">
       <div className="d-flex flex-column">
-        <h3 className="display-5  text-center  lh-3 text-text fs-xx-large mb-4" style={{fontWeight:"900"}}>
+        <h3
+          className="display-5  text-center  lh-3 text-text fs-xx-large mb-4"
+          style={{ fontWeight: "900" }}
+        >
           Get more done in
-          <span className="display-5 text-center text-secondary fs-xxx-large" style={{fontWeight:"900"}}>
+          <span
+            className="display-5 text-center text-secondary fs-xxx-large"
+            style={{ fontWeight: "900" }}
+          >
             {" "}
             less time
           </span>{" "}

@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { gerogrianToShamsi } from "@/pages/setup/utils/shamsiDateHelper";
 import gregorian_en from "react-date-object/locales/gregorian_en";
-import Link from "next/link";
 
 const CurrencyItem = (props) => {
   const { image, name, last_updated, current_price } = props.data;
