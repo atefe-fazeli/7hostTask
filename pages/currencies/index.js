@@ -36,10 +36,7 @@ const Currencies = () => {
     setPage(page + 1);
   };
 
-  const handleShowMore = () => {
-    if (getPending || error) return;
-    setPage(page + 1);
-  };
+ 
 
   const handleShowModal = (currency) => {
     setSelectedCurrency(currency);
@@ -95,7 +92,7 @@ const Currencies = () => {
             <div className="text-center mt-4">
               <Button
                 className="bg-primary rounded-5 px-5"
-                onClick={handleShowMore}
+                onClick={loadMore}
               >
                 {getPending ? "loading" : "Show More"}
               </Button>
