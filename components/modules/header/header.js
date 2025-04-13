@@ -14,7 +14,7 @@ const Header = () => {
       onToggle={() => setExpanded(!expanded)}
     >
       <Container fluid className="p-0 m-0 ">
-        <Navbar.Brand href="#" className="z-3 mb-2">
+        <Navbar.Brand href="/" className="z-3 mb-2">
           <Image src="/images/logo.svg" alt="logo" height={32} width={149} />
         </Navbar.Brand>
 
