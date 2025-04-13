@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import Link from "next/link";
-import { useTheme } from "@/context/themeContext";
+import { useTheme } from "@/pages/setup/appContextManager/themeContext/index";
 const SectionOne = () => {
   const { theme } = useTheme();
   return (

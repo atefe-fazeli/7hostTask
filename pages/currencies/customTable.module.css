@@ -8,38 +8,46 @@
 .customTable, .customTable th,
 .customTable td, .customTable thead th {
 background-color: #EDEDED;
-
+color: #23262F;
   }
+.customTable thead th {
+    color: #777E90;
+}
+  
   
 [data-bs-theme='dark'] .customTable{
   background-color: #212529;
+  color: #ffff;
 }
 [data-bs-theme='dark'] .customTable th{
     background-color: #212529;
+    color: #ffff;
 }   
 [data-bs-theme='dark'] .customTable td{
     background-color: #212529;
+    color: #ffff;
 } 
 [data-bs-theme='dark'] .customTable thead th {
     background-color: #212529;
-  }
+    color: #ffff;
+}
   .customTable th:nth-child(1),
   .customTable td:nth-child(1) {
-    width: 50px; /* عرض کمتر برای ستون آیدی */
-    text-align: left; /* چپ‌چین */
+    width: 50px; 
+    text-align: left;
   }
   
   .customTable th:nth-child(2),
   .customTable td:nth-child(2) {
-    text-align: left; /* چپ‌چین برای ستون نام */
+    text-align: left; 
   }
   
   .customTable th:nth-child(3),
   .customTable td:nth-child(3) {
-    text-align: center; /* وسط‌چین برای ستون قیمت */
+    text-align: center;
   }
   
   .customTable th:nth-child(4),
   .customTable td:nth-child(4) {
-    text-align: right; /* راست‌چین برای ستون تاریخ */
+    text-align: right; 
   }

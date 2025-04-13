@@ -3,15 +3,16 @@ import Header from "@/components/modules/header/header";
 import "@/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "@/styles/custom.scss";
-import { ThemeProvider } from "@/context/themeContext";
+import ContexManager from "./setup/appContextManager";
+
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <ThemeProvider>
+      <ContexManager>
         <Header />
         <Component {...pageProps} />
         <Footer />;
-      </ThemeProvider>
+      </ContexManager>
     </>
   );
 }

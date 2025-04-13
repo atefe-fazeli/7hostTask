@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import Image from "next/image";
-import { useTheme } from "@/context/themeContext";
+import { useTheme } from "@/pages/setup/appContextManager/themeContext/index";
 const About = () => {
     const { theme } = useTheme();
   const features = [

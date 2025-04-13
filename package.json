@@ -17,6 +17,7 @@
     "react-dom": "^19.0.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-multi-date-picker": "^4.5.2",
+    "react-toastify": "^11.0.5",
     "sass": "^1.86.3",
     "swiper": "^11.2.6"
   }

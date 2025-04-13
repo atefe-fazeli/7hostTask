@@ -1,13 +1,12 @@
-// context/ThemeContext.js
 import { createContext, useState, useEffect, useContext } from 'react';
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('light'); // مقدار اولیه
+  const [theme, setTheme] = useState('light'); 
   const [isMounted, setIsMounted] = useState(false);
 
-  // فقط توی مرورگر اجرا بشه
+
   useEffect(() => {
     setIsMounted(true);
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -25,8 +24,6 @@ export function ThemeProvider({ children }) {
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
-
-  // تا وقتی رندر سمت کلاینت انجام نشده، چیزی رندر نکن
   if (!isMounted) {
     return null;
   }

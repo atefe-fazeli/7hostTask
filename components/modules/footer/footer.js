@@ -4,7 +4,7 @@ import { Container, Row, Col, Nav } from "react-bootstrap";
 import Image from "next/image";
 import Link from "next/link";
 import Form from "react-bootstrap/Form";
-import { useTheme } from "@/context/themeContext";
+import { useTheme } from "@/pages/setup/appContextManager/themeContext/index";
 const Footer = () => {
   const { theme, toggleTheme } = useTheme();
   return (

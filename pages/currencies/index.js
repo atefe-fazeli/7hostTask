@@ -1,168 +1,165 @@
 import React, { useState, useEffect } from "react";
-import { Container, Table, Button } from "react-bootstrap";
-import Image from "next/image";
+import { Container, Table, Button, Modal } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Image from "next/image";
 import Topbar from "@/components/templates/currencies/topbar";
+import CurrencyItem from "@/components/templates/currencies/currencyItem";
 import styles from "./customTable.module.css";
-import { gerogrianToShamsi } from "@/utils/shamsiDateHelper";
-import gregorian_en from "react-date-object/locales/gregorian_en";
+import { useApi } from "../setup/hooks/useApi";
+import {
+  currencyURL,
+  GetCurrencyListURL,
+  moreCurrencyURL,
+} from "../setup/api/apiRoutes";
 
-// دریافت داده‌ها از API در سمت سرور (Server-Side Rendering)
-export async function getServerSideProps() {
-  const res = await fetch(
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
-  );
-  const data = await res.json();
-
-  return {
-    props: {
-      initialData: data,
-    },
-  };
-}
-
-const Currencies = ({ initialData }) => {
-  const [data, setData] = useState(initialData || []);
+const Currencies = () => {
+  const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null); // برای نمایش خطاها
+  const [error, setError] = useState();
+  const { getPending, getApi } = useApi();
+  const [showModal, setShowModal] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState(null);
 
-  // تابع برای دریافت داده‌ها با مدیریت خطا
-  const fetchMoreData = async (pageToFetch) => {
-    setLoading(true);
-    setError(null); // ریست کردن خطا
-
-    try {
-      const res = await fetch(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${pageToFetch}&sparkline=false`
-      );
-
-      // بررسی وضعیت پاسخ
-      if (!res.ok) {
-        throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`);
-      }
-
-      const newData = await res.json();
-
-      if (newData.length === 0) {
+  useEffect(() => {
+    console.log("use effect");
+    getApi(
+      GetCurrencyListURL(page),
+      (res) => {
+        console.log(res, "kili");
+        if (res?.data?.length === 0) {
+          setHasMore(false);
+        } else {
+          setData((prevData) => [...prevData, ...res?.data]);
+        }
+      },
+      (err) => {
+        console.warn(err);
+        console.log(err,"err")
         setHasMore(false);
-      } else {
-        setData((prevData) => [...prevData, ...newData]);
+        setError(err);
       }
-    } catch (error) {
-      console.error("Error fetching more data:", error.message);
-      setError("Failed to load more data. Please try again later.");
-      setHasMore(false);
-    } finally {
-      setLoading(false);
-    }
-  };
+    );
+  }, [page]);
 
-  // تابع برای Infinite Scroll (تا صفحه 4)
   const loadMore = () => {
-    if (page < 4) {
-      const nextPage = page + 1;
-      setPage(nextPage);
-      fetchMoreData(nextPage);
-    }
+    setPage(page + 1);
   };
 
-  // تابع برای دکمه "نمایش بیشتر" با تأخیر
-  const handleShowMore = async () => {
-    if (loading) return; // جلوگیری از کلیک سریع
+  const handleShowMore = () => {
+    console.log(getPending, "getPending");
+    if (getPending || error) return;
+    setPage(page + 1);
+  };
 
-    const nextPage = page + 1;
-    setPage(nextPage);
-    await fetchMoreData(nextPage);
+  const handleShowModal = (currency) => {
+    console.log("modal");
+    setSelectedCurrency(currency);
+    setShowModal(true);
+  };
 
-    // تأخیر مصنوعی برای جلوگیری از درخواست سریع (اختیاری)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedCurrency(null);
   };
 
   return (
     <>
-      <div className="bg-lightpurple py-4 px-32 px-md-96 py-md-48" >
+      <div className="bg-lightpurple py-4 px-32 px-md-96 py-md-48">
         <Topbar />
       </div>
       <div className="py-0 px-0 px-md-96 py-md-48">
-        <div className={`${styles.currencyTableConatiner} rounded-4  px-md-56 py-md-40 p-5`}>
-          {data.length > 0 ? (
-            <InfiniteScroll
-              dataLength={data.length}
-              next={loadMore}
-              hasMore={page < 4 && hasMore}
-              loader={<h4 className="text-center">Loading...</h4>}
-              endMessage={
-                page < 4 && !hasMore ? (
-                  <p className="text-center text-muted">
-                    No more data to load.
-                  </p>
-                ) : null
-              }
+        <div
+          className={`${styles.currencyTableConatiner} rounded-4 px-md-56 py-md-40 p-5`}
+        >
+          <InfiniteScroll
+            dataLength={data.length}
+            next={loadMore}
+            hasMore={page < 3}
+            endMessage={null}
+          >
+            <Table
+              responsive
+              className={`table table-borderless ${styles.customTable}`}
             >
-              <Table
-                responsive
-                className={`table table-borderless ${styles.customTable}`}
-              >
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Price (USD)</th>
-                    <th>Last Updated</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((item, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>
-                        <Image
-                          src={item.image}
-                          alt="Crypto Icon"
-                          width={20}
-                          height={20}
-                          className="me-2"
-                        />
-                        {item.name}
-                      </td>
-                      <td>${item.current_price}</td>
-                      <td>{gerogrianToShamsi(item.last_updated,null,gregorian_en)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </InfiniteScroll>
-          ) : (
-            <p className="text-center text-muted">
-              Unable to load data. Please try again later.
-            </p>
-          )}
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price (USD)</th>
+                  <th>Last Updated</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item, index) => (
+                  <CurrencyItem
+                    key={index}
+                    index={index}
+                    data={item}
+                    onClick={() => handleShowModal(item)}
+                  />
+                ))}
+              </tbody>
+            </Table>
+          </InfiniteScroll>
 
-          {error && (
-            <p className="text-center text-danger mt-4">{error}</p>
-          )}
-
-          {page >= 4 && hasMore && (
+          {!error && (
             <div className="text-center mt-4">
               <Button
-                variant="primary"
+                className="bg-primary rounded-5 px-5"
                 onClick={handleShowMore}
-                disabled={loading}
               >
-                {loading ? "Loading..." : "Show More"}
+                {getPending ? "loading" : "Show More"}
               </Button>
             </div>
           )}
-
-          {page >= 4 && !hasMore && !error && (
-            <p className="text-center text-muted mt-4">
-              No more data to load.
-            </p>
-          )}
         </div>
       </div>
+
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Body className={styles.modalBody}>
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <Image
+              src="/images/modallogo.svg"
+              alt="Crypto Icon"
+              width={100}
+              height={100}
+              className={styles.modalTitle}
+            />
+            <Button
+              className={`${styles.closeButton} rounded-5 `}
+              onClick={handleCloseModal}
+            >
+              ✕
+            </Button>
+          </div>
+          {selectedCurrency && (
+            <div className="d-flex align-items-center">
+              <Image
+                src={selectedCurrency.image}
+                alt={selectedCurrency.name}
+                width={40}
+                height={40}
+                className="me-2"
+              />
+              <div>
+                <div className="d-flex align-items-center">
+                  <span className={styles.currencyName}>
+                    {selectedCurrency.name}{" "}
+                    {selectedCurrency.symbol.toUpperCase()}
+                  </span>
+                  <span className={styles.lastUpdated}>
+                    {new Date(selectedCurrency.last_updated).toLocaleString()}
+                  </span>
+                </div>
+                <div className={styles.currencyPrice}>
+                  {selectedCurrency.current_price.toFixed(2)} USD
+                </div>
+              </div>
+            </div>
+          )}
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
