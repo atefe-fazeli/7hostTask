@@ -17,7 +17,7 @@ const Hero = () => {
           management technology.
         </p>
 
-        <div className="d-flex flex-column flex-sm-row gap-4 px-32 py-3 ">
+        <div className="d-flex flex-column justify-content-center flex-sm-row gap-4 px-32 py-3 ">
           <Button
             variant="secondary"
             className="px-32 py-3 rounded-5 d-flex align-items-center gap-5 justify-content-between"
@@ -40,7 +40,7 @@ const Hero = () => {
           </Button>
         </div>
       </div>
-      <div className="w-100 w-md-50 d-flex justify-content-center justify-content-md-end align-content-center ms-md-5">
+      <div className="w-100 w-md-50 d-flex justify-content-center justify-content-md-end align-content-center ">
         <Image
           src="/images/hero.svg"
           alt="hero"
