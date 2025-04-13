@@ -5,28 +5,25 @@ import Image from "next/image";
 import Topbar from "@/components/templates/currencies/topbar";
 import CurrencyItem from "@/components/templates/currencies/currencyItem";
 import styles from "./customTable.module.css";
-import { useApi } from "../setup/hooks/useApi";
-import {
-  GetCurrencyListURL,
-} from "../setup/api/apiRoutes";
+import gregorian_en from "react-date-object/locales/gregorian_en";
+import { GetCurrencyListURL } from "@/setup/api/apiRoutes";
+import { gerogrianToShamsi } from "@/setup/utils/shamsiDateHelper";
+import { useApi } from "@/setup/hooks/useApi";
 
 const Currencies = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-  
+
   const [error, setError] = useState();
-  const { getPending, getApi } = useApi();
   const [showModal, setShowModal] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState(null);
+  const { getPending, getApi } = useApi();
 
   useEffect(() => {
-   
     getApi(
       GetCurrencyListURL(page),
       (res) => {
-       
-          setData((prevData) => [...prevData, ...res?.data]);
-        
+        setData((prevData) => [...prevData, ...res?.data]);
       },
       (err) => {
         console.warn(err);
@@ -45,7 +42,6 @@ const Currencies = () => {
   };
 
   const handleShowModal = (currency) => {
-    
     setSelectedCurrency(currency);
     setShowModal(true);
   };
@@ -115,7 +111,7 @@ const Currencies = () => {
               src="/images/modallogo.svg"
               alt="Crypto Icon"
               width={100}
-              height={100}
+              height={20}
               className={styles.modalTitle}
             />
             <Button
@@ -126,27 +122,28 @@ const Currencies = () => {
             </Button>
           </div>
           {selectedCurrency && (
-            <div className="d-flex align-items-center">
-              <Image
-                src={selectedCurrency.image}
-                alt={selectedCurrency.name}
-                width={40}
-                height={40}
-                className="me-2"
-              />
-              <div>
-                <div className="d-flex align-items-center">
-                  <span className={styles.currencyName}>
+            <div className="d-flex  justify-content-between ">
+              <div className="d-flex flex-column align-items-center ">
+                <div className="d-flex align-items-center mb-3">
+                  <Image
+                    src={selectedCurrency.image}
+                    alt={selectedCurrency.name}
+                    width={40}
+                    height={40}
+                    className="me-2"
+                  />
+                  <span className="text-text">
                     {selectedCurrency.name}{" "}
                     {selectedCurrency.symbol.toUpperCase()}
                   </span>
-                  <span className={styles.lastUpdated}>
-                    {new Date(selectedCurrency.last_updated).toLocaleString()}
-                  </span>
                 </div>
-                <div className={styles.currencyPrice}>
-                  {selectedCurrency.current_price.toFixed(2)} USD
-                </div>
+                <span className="fs-32 fw-bold">{selectedCurrency.current_price.toFixed(2)}<span className="text-secondary"> USD</span></span>
+                
+              </div>
+              <div className={styles.currencyPrice}>
+                <span className={styles.lastUpdated}>
+                  {gerogrianToShamsi(selectedCurrency.last_updated, null, gregorian_en)}
+                </span>
               </div>
             </div>
           )}

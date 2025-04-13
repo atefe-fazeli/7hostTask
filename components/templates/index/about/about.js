@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { useTheme } from "@/pages/setup/appContextManager/themeContext/index";
+import { useTheme } from "@/setup/appContextManager/themeContext";
+
 const About = () => {
   const { theme } = useTheme();
   const features = [

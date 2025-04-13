@@ -1,6 +1,7 @@
+import { useTheme } from "@/setup/appContextManager/themeContext";
 import React from "react";
 import { Accordion } from "react-bootstrap";
-import { useTheme } from "@/pages/setup/appContextManager/themeContext/index";
+
 const FAQ = () => {
   const { theme } = useTheme();
   return (

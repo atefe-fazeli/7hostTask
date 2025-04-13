@@ -1,7 +1,8 @@
 import React from "react";
 import { Image } from "react-bootstrap";
 import Link from "next/link";
-import { useTheme } from "@/pages/setup/appContextManager/themeContext/index";
+import { useTheme } from "@/setup/appContextManager/themeContext";
+
 const SectionOne = () => {
   const { theme } = useTheme();
   return (
